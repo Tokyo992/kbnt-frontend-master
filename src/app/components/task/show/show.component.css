@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+mat-form-field, input {
+    width: 100%;
+}
+
+ textarea {
+    height: 5em;
+}

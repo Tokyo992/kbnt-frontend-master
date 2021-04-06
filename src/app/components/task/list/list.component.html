@@ -1,0 +1,34 @@
+
+<div class="list" >
+    <h1>Tasks</h1>
+
+ <div class="card-header form-group">
+     <input  placeholder="Search By Title" class="form-control" type="text" [(ngModel)]="searchBox">
+</div>
+
+
+    <mat-selection-list [multiple]="false" >
+      <div class="mat-list-option-cover">
+        <mat-list-option
+        *ngFor="let task of this.tasks | taskFilter: searchBox"
+        (click)="onOpenDialog(task)">
+        <div class="d-flex justify-content-between" ng-repeat="item in allItems | orderBy:sortType:sortReverse">
+          <span class="task-date">
+
+            <div  value="setColor" class="todo pending emergency completed" ></div>
+            {{ task.dueDate | date: "mediumDate" }}
+          </span>
+          <span
+          class="task-date ">
+            {{ task.type }}
+          </span>
+        </div>
+        <span class="task-title">
+          {{ task.title.substring(0, 40) }}
+          {{ task.title.length > 40 ? "..." : "" }}
+        </span>
+      </mat-list-option>
+    </div>
+  </mat-selection-list>
+</div>
+
